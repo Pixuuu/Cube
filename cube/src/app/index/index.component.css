@@ -1,5 +1,5 @@
 html{
-    
+
 }
 
 nav {
@@ -29,6 +29,8 @@ nav {
   
   .categories li a {
     color: #000;
+    text-transform: uppercase;
+    font-weight: bold;
     text-decoration: none;
   }
   
@@ -60,6 +62,7 @@ nav {
   }
   
   .slide-text p {
+    font-weight: 200;
     font-size: 1.3em;
     margin-bottom: 40px;
   }
@@ -71,11 +74,12 @@ nav {
   .button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #fff;
-    color: #007bff;
+    background-color: transparent;
+    border: 4px white solid;
+    color: white;
+    text-transform: uppercase;
     text-decoration: none;
     margin-right: 10px;
-    border-radius: 5px;
   }
   
   .slide-image {
