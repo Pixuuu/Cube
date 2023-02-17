@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-html{
+html, body{
+  padding: 0;
+  margin: 0;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -129,7 +131,7 @@ button img {
   flex-wrap: wrap;
   max-width: 1200px;
   margin: 3em auto;
-  height: 666px;
+  height: 650px;
   background-color: #FBCE01;
   border-radius: 30px;
   box-shadow: 10px 10px 0px 0px #F9BE01;
@@ -168,7 +170,8 @@ h2 {
   background-color: white;
   border: 1px black solid;
   text-align: center;
-  width: 18em;
+  width: 100%;
+  height: 530px;
 }
 
 .cat-menu li{
@@ -202,7 +205,7 @@ input[type="text"] {
   border-top: 1px solid black;
   border-left: 1px solid black;
   border-bottom: 1px solid black;
-  width: 18em;
+  width: 100%;
   font-size: 16px;
   outline: none;
 }
