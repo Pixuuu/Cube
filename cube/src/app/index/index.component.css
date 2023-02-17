@@ -1,172 +1,223 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 html{
-    font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #fff;
-    color: #fff;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  color: #fff;
+}
   
-  .logo img {
-    border: none;
-    height: 50px;
-    width: auto;
-  }
+.logo img {
+  border: none;
+  height: 50px;
+  width: auto;
+}
 
-  .menu button{
-    border: none !important;
-    background-color: white;
-    text-align: center;
-    padding: 3px;
-  }
-  
+.menu button{
+  border: none !important;
+  background-color: white;
+  text-align: center;
+  padding: 3px;
+}
 
-  button img {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    background-color: #4CAF50;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-  }
 
-  .menu img{
-    height: 45px;
-    width: auto;
-  }
+button img {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background-color: #4CAF50;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
 
-  .categories {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .categories li {
-    margin: 0 10px;
-  }
-  
-  .categories li a {
-    color: #000;
-    text-transform: uppercase;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
-  .login a {
-    color: #000;
-    text-decoration: none;
-  }
-  
-  .login i {
-    font-size: 20px;
-  }
+.menu img{
+  height: 45px;
+  width: auto;
+}
 
-  .slide {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #015A9B;
-    color: #fff;
-    padding: 50px;
-  }
-  
-  .slide-text {
-    width: 50%;
-  }
-  
-  .slide-text h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-  }
-  
-  .slide-text p {
-    font-weight: 200;
-    font-size: 1.3em;
-    margin-bottom: 40px;
-  }
-  
-  .slide-buttons {
-    display: flex;
-  }
-  
-  .button {
-    display: inline-block;
-    padding: 10px 20px;
-    border: 3px white solid;
-    background-color: transparent;
-    color: white;
-    text-transform: uppercase;
-    text-decoration: none;
-    margin-right: 10px;
-  }
-  
-  .slide-image {
-    width: 40%;
-    height: 300px;
-    background-image: url(src/assets/slide-img.png);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
+.categories {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-  .spacer{
-    width: 100%;
-    height: 4em;
-    background-color: #014886;
-  }
+.categories li {
+  margin: 0 10px;
+}
 
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 5em auto;
-    background-color: #FBCE01;
-    border-radius: 30px;
-    /*box-shadow: #000 5px; à faire*/
-  }
+.categories li a {
+  color: #000;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+}
 
-  .cat-menu {
-    background-color: white;
-  }
+.login a {
+  color: #000;
+  text-decoration: none;
+}
 
-  .publi-menu{
-    background-color: white;
-  }
+.login i {
+  font-size: 20px;
+}
 
-  /* Section de la barre de recherche et des catégories */
-  aside {
-    flex: 1;
-    padding: 1em;
-    background-color: transparent;
-  }
+.slide {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #015A9B;
+  color: #fff;
+  padding: 50px;
+}
 
-  /* Section des publications */
-  article {
-    flex: 2;
-    padding: 1em;
-    background-color: transparent;
-  }
+.slide-text {
+  width: 50%;
+}
 
-  /* Style pour les titres des sections */
-  h2 {
-    margin-top: 0;
-  }
-  
-  footer{
-    width: 100%;
-    height: 10em;
-    display: flex;
-    background-color: #015A9B;
-    justify-content: center;
-    align-items: center;
-    color: white;
-  }
+.slide-text h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.slide-text p {
+  font-weight: 200;
+  font-size: 1.3em;
+  margin-bottom: 40px;
+}
+
+.slide-buttons {
+  display: flex;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 3px white solid;
+  background-color: transparent;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.slide-image {
+  width: 40%;
+  height: 300px;
+  background-image: url(src/assets/slide-img.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.spacer{
+  width: 100%;
+  height: 4em;
+  background-color: #014886;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 3em auto;
+  height: 666px;
+  background-color: #FBCE01;
+  border-radius: 30px;
+  box-shadow: 10px 10px 0px 0px #F9BE01;
+}
+
+/* Section de la barre de recherche et des catégories */
+aside {
+  flex: 1;
+  padding-top: 3em;
+  padding-left: 5em;
+  background-color: transparent;
+}
+
+/* Section des publications */
+article {
+  flex: 2;
+  padding: 3em;
+  background-color: transparent;
+}
+
+/* Style pour les titres des sections */
+h2 {
+  margin-top: 0;
+}
+
+.publi-menu{
+  border-radius: 15px;
+  background-color: white;
+  border: 1px black solid;
+  padding: 10px;
+  height: 100%; 
+}
+
+.cat-menu{
+  border-radius: 15px;
+  background-color: white;
+  border: 1px black solid;
+  text-align: center;
+  width: 18em;
+}
+
+.cat-menu li{
+  list-style-type: none;
+}
+
+.cat-menu ul{
+  padding: 0;
+}
+
+footer{
+  width: 100%;
+  height: 10em;
+  display: flex;
+  background-color: #015A9B;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: none;
+  border-radius: 15px 0 0 15px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 18em;
+  font-size: 16px;
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: white;
+  border: none;
+  border-radius: 0 15px 15px 0;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+button[type="submit"] i {
+  font-size: 17px;
+}
