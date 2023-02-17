@@ -1,27 +1,75 @@
-<nav>
-    <div class="logo">
-      <img src="assets/logo_small.png" alt="Logo">
-    </div>
-    <ul class="categories">
-      <li><a href="#">Accueil</a></li>
-      <li><a href="#">Publier</a></li>
-      <li><a href="#">Page3</a></li>
-      <li><a href="#">Page4</a></li>
-    </ul>
-    <div class="login">
-      <a href="#"><i class="fas fa-user"></i></a>
-    </div>
-  </nav>
-
-  <section class="slide">
-    <div class="slide-text">
-        <p>La plateforme pour améliorer vos relations</p>
-        <h1>Ressource Relationnel</h1>
-        <p>Publiez et partagez vos ressources afin de <br> vous créer des relations</p>
-        <div class="slide-buttons">
-            <a href="#" class="button">Connexion</a>
-            <a href="#" class="button">S'enregistrer</a>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=">
+    <title>Cube - Index</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="assets/logo_small.png" alt="Logo">
         </div>
-    </div>
-    <div class="slide-image"></div>
-  </section>
+        <ul class="categories">
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Publier</a></li>
+            <li><a href="#">Page3</a></li>
+            <li><a href="#">Page4</a></li>
+        </ul>
+        <div class="menu">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <img src="assets/avatar.png" alt="Avatar" [matMenuTriggerFor]="menu">
+            </button>
+            <mat-menu #menu="matMenu" class="customize">
+                <span>Salut à toi Invité001<br></span>
+                <button mat-menu-item>Connexion</button>
+                <button mat-menu-item>Inscription</button>
+            </mat-menu>
+        </div>
+    </nav>
+    
+    <section class="slide">
+        <div class="slide-text">
+            <p>La plateforme pour améliorer vos relations</p>
+            <h1>Ressource Relationnel</h1>
+            <p>Publiez et partagez vos ressources afin de <br> vous créer des relations</p>
+            <div class="slide-buttons">
+                <a href="#" class="button">Connexion</a>
+                <a href="#" class="button">S'enregistrer</a>
+            </div>
+        </div>
+        <div class="slide-image"></div>
+    </section>
+    <div class="spacer"></div>
+
+    <div class="container">
+        <aside>
+          <form>
+            <input type="text" id="search" name="search">
+            <input type="submit" value="Rechercher">
+          </form>
+          <div class="cat-menu">
+          <h2>Catégories</h2>
+          <ul>
+            <li>Catégorie 1</li>
+            <li>Catégorie 2</li>
+            <li>Catégorie 3</li>
+          </ul>
+            </div>
+        </aside>
+        <article>
+        <div class="publi-menu">
+          <p>Contenu de la première publication...</p>
+          <p>Contenu de la deuxième publication...</p>
+          <p>Contenu de la troisième publication...</p>
+        </div>
+        </article>
+      </div>
+
+      <footer>
+        <p>© Ministère des Solidarités et de la Santé 2022</p>
+      </footer>
+        
+</body>
+</html>
