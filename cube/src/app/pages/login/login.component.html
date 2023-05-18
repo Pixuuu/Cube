@@ -1,1 +1,36 @@
-<p>login works!</p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cube - Connexion</title>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <img src="assets/logo_small.png" alt="Logo">
+            <p>La plateforme pour améliorer vos relations</p>
+            <h1>Ressource Relationnel</h1>
+            <p>Publiez et partagez vos ressources afin de vous créer des relations !</p>
+            <p class="footertext">© Ministère des Solidarités et de la Santé 2022</p>
+        </div>
+        <div class="content">
+            <div class="form-login">
+                <h1>Se connecter</h1>
+                <p>Connectez-vous afin de rejoindre nos utilisateurs et créer des relations entre vous !</p>
+                    <div class="form-field">
+                        <label for="utilisateur">Utilisateur</label>
+                        <input type="text" id="utilisateur" />
+                    </div>
+                    <div class="form-field">
+                        <label for="motdepasse">Mot de passe</label>
+                        <input type="password" id="motdepasse" />
+                        <span>Mot de passe oublié ?</span>
+                    </div>
+                    <button class="buttonlogin" (click)="seConnecter()">Connexion</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

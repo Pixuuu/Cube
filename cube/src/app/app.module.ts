@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './pages/home/home.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -23,6 +24,7 @@ import { LoginComponent } from './pages/login/login.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatMenuModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

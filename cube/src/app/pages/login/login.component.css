@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+}
+  
+.container{
+    display: flex;
+    flex-wrap: wrap; /* Ajout pour permettre le passage en dessous */
+    height: 100%;
+}
+
+.sidebar{
+    background-color: #015A9B;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 30%;
+    max-width: 30%;
+    position: relative;
+}
+
+.content{
+    flex: 1; /* Ajout pour occuper l'espace restant */
+}
+
+.form-login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* Media Query pour les écrans de petite taille */
+@media screen and (max-width: 768px){
+.sidebar{
+    flex: 0 0 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.content{
+    flex: 0 0 100%; /* Pour occuper toute la largeur */
+}
+}
+
+
+.footertext{
+    position: absolute; /* Ajout */
+    bottom: 0; /* Ajout */
+    left: 0; /* Ajout */
+    right: 0; /* Ajout */
+    margin: 10px; /* Ajout pour espacement */
+}
+
+
+h1, p{
+    text-align: center;
+}
+
+.form-field{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  
+.form-field label{
+    font-size: large;
+    margin-bottom: 5px;
+    align-self: center;
+}
+
+.form-field input{
+    height: 2vh;
+}
+  
+.form-field span {
+    align-self: center; /* Ajustement de la valeur selon vos besoins */
+}
+
+button{
+    background-color: #FBCE01;
+    border: none;
+    color: white;
+    height: 3vh;
+    width: 11vh;
+    font-size: large;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+}
