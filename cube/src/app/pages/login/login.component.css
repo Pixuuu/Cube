@@ -49,7 +49,6 @@ html, body {
 }
 }
 
-
 .footertext{
     position: absolute;
     bottom: 0; 
@@ -68,7 +67,7 @@ h1, p{
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 10px;
-  }
+}
   
 .form-field label{
     font-size: large;
