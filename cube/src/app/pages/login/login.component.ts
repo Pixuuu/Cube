@@ -13,7 +13,7 @@ export class LoginComponent {
   constructor(private http: HttpClient) {}
 
   seConnecter() {
-    const url = 'https://votre-api-rest.com/auth'; // Remplacez par l'URL de votre API REST
+    const url = 'https://votre-api-rest.com/auth';
 
     const data = {
       utilisateur: this.utilisateur,

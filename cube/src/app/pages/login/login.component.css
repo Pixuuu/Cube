@@ -9,7 +9,7 @@ html, body {
   
 .container{
     display: flex;
-    flex-wrap: wrap; /* Ajout pour permettre le passage en dessous */
+    flex-wrap: wrap;
     height: 100%;
 }
 
@@ -26,8 +26,7 @@ html, body {
 }
 
 .content{
-    flex: 1; /* Ajout pour occuper l'espace restant */
-}
+    flex: 1;
 
 .form-login{
     display: flex;
@@ -37,7 +36,6 @@ html, body {
     height: 100%;
 }
 
-/* Media Query pour les écrans de petite taille */
 @media screen and (max-width: 768px){
 .sidebar{
     flex: 0 0 100%;
@@ -46,17 +44,17 @@ html, body {
 }
 
 .content{
-    flex: 0 0 100%; /* Pour occuper toute la largeur */
+    flex: 0 0 100%;
 }
 }
 
 
 .footertext{
-    position: absolute; /* Ajout */
-    bottom: 0; /* Ajout */
-    left: 0; /* Ajout */
-    right: 0; /* Ajout */
-    margin: 10px; /* Ajout pour espacement */
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    right: 0;
+    margin: 10px;
 }
 
 
@@ -82,7 +80,7 @@ h1, p{
 }
   
 .form-field span {
-    align-self: center; /* Ajustement de la valeur selon vos besoins */
+    align-self: center;
 }
 
 button{
