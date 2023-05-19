@@ -20,12 +20,12 @@
                 <h1>Se connecter</h1>
                 <p>Connectez-vous afin de rejoindre nos utilisateurs et créer des relations entre vous !</p>
                     <div class="form-field">
-                        <label for="utilisateur">Utilisateur</label>
-                        <input type="text" id="utilisateur" />
+                        <label for="email">E-mail</label>
+                        <input type="text" [(ngModel)]="email" id="email" />
                     </div>
                     <div class="form-field">
                         <label for="motdepasse">Mot de passe</label>
-                        <input type="password" id="motdepasse" />
+                        <input type="password" [(ngModel)]="password" id="motdepasse" />
                         <span>Mot de passe oublié ?</span>
                     </div>
                     <button class="buttonlogin" (click)="seConnecter()">Connexion</button>
