@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,6 +11,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { RegisterComponent } from './pages/register/register.component';
+import { CategoriesComponent } from './components/categories/categories.component';
+import { PublicationsComponent } from './components/publications/publications.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,10 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     NavbarComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    CategoriesComponent,
+    PublicationsComponent
   ],
   imports: [
     BrowserModule,

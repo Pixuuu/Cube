@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
+import { CookieService } from 'src/app/cookie.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -8,25 +10,40 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  userId: number | null = null;
+  isAuthenticated: boolean = false;
+  firstName: string = '';
 
-  isLoggedIn = false;
-  loggedInMenu: any;
-  guestMenu: any;
-
-  constructor(public route: Router, public authService: AuthService) { }
+  constructor(public router: Router, public authService: AuthService, private cookieService: CookieService) {
+    const token = this.cookieService.getCookie('token');
+    if (token) {
+      this.userId = authService.getUserIdFromCookie();
+    }
+  }
 
   ngOnInit() {
-    // Récupérer l'état de connexion depuis le localStorage
-    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-    this.authService.setLoggedIn(isLoggedIn);
+    this.isAuthenticated = this.authService.isAuthenticated();
+
+    if(this.isAuthenticated){
+    this.authService.fetchUserDetails().subscribe(
+      (response: any) => {
+        this.firstName = response.firstname;
+        console.log(this.firstName);
+      },
+      error => {
+        console.error('An error occurred while fetching user details:', error);
+      }
+    
+    );
+    }
   }
-  
 
   redirection(route: string): void {
-    this.route.navigate([route]);
+    this.router.navigate([route]);
   }
 
-  logout() {
-    this.authService.logout();
+  logout(): void {
+    this.cookieService.deleteCookie('token');
+    window.location.reload();
   }
 }

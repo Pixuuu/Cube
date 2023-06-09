@@ -1,1 +1,61 @@
-<p>register works!</p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cube - Inscription</title>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <img src="assets/logo_small.png" alt="Logo">
+            <p>La plateforme pour améliorer vos relations</p>
+            <h1>Ressource Relationnel</h1>
+            <p>Publiez et partagez vos ressources afin de vous créer des relations !</p>
+            <p class="footertext">© Ministère des Solidarités et de la Santé 2022</p>
+        </div>
+        <div class="content">
+            <div class="form-register">
+                <h1>S'enregistrer</h1>
+                <p>Créez-vous un compte afin d’établir de nouvelles relations !</p>
+                    <div class="form-field">
+                        <label for="firstName">Nom</label>
+                        <input type="text" [(ngModel)]="firstName" id="firstName" requirred/>
+                    </div>
+                    <div class="form-field">
+                        <label for="lastName">Prénom</label>
+                        <input type="text" [(ngModel)]="lastName" id="lastName" requirred/>
+                    </div>
+                    <div class="form-field">
+                        <label for="birthday">Date d'anniversaire</label>
+                        <input type="date" [(ngModel)]="birthday" id="birthday" requirred/>
+                    </div>
+                    <div class="form-field">
+                        <label for="email">E-mail</label>
+                        <input type="email" [(ngModel)]="email" id="email" requirred/>
+                    </div>
+                    <div class="form-field">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" [(ngModel)]="password" id="password" requirred/>
+                    </div>
+                    <div class="form-field">
+                        <label for="c_password">Confirmer mot de passe</label>
+                        <input type="password" [(ngModel)]="c_password" id="c_password" requirred/>
+                    </div>
+                    <div class="form-field" *ngIf="passError">
+                        <p>Les mots de passe ne correspondent pas</p>
+                      </div>
+                    <div class="form-field" *ngIf="termsError">
+                        <p>Vous n'avez pas accepter les termes</p>
+                    </div>
+                    <div class="form-terms">
+                        <input type="checkbox" id="terms" [ngModel]="acceptTerms" (ngModelChange)="acceptTerms = $event" requirred/>
+                        <label for="terms">J'accepte les termes, les conditions et la politique de confidentialité</label>
+                    </div>
+                    <button class="buttonregister" (click)="validateAndRegister()">S'enregistrer</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

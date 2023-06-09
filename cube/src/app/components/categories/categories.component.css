@@ -1,0 +1,14 @@
+.category-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .category-link {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .category-link:hover {
+    text-decoration: underline;
+  }
+  

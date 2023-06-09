@@ -1,0 +1,9 @@
+<div *ngFor="let publication of displayedPublications">
+  <h2>{{ publication.title }}</h2>
+  <p>Date: {{ publication.publisher.lastname }}</p>
+  <p>Auteur: {{ publication.publisher.firstname }}</p>
+  <p>{{ publication.description }}</p>
+  <hr>
+</div>
+
+<button *ngIf="displayedPublications.length < publications.length" (click)="loadMorePublications()">Charger plus de publications</button>

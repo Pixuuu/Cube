@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { AuthService } from 'src/app/auth.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginResponse } from './login-response.interface';
 import { Router } from '@angular/router';
-
+import { CookieService } from 'src/app/cookie.service';
 
 @Component({
   selector: 'app-login',
@@ -14,32 +13,39 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private http: HttpClient, private authService: AuthService, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private cookieService: CookieService) {}
 
   seConnecter() {
-    const url = 'http://api.test/api/login';
+    const url = 'http://localhost:8000/api/login_check';
+    const payload = { username: this.email, password: this.password };
 
-    this.http.post<LoginResponse>(url, { email: this.email, password: this.password }).subscribe({
-      next: response => {
-        // Gérer la réponse de l'API REST
-        console.log(response);
-        
-        // Vérifier si la connexion est réussie
-        if (response.success) {
-          // Enregistrer l'état de connexion dans le localStorage
-          localStorage.setItem('isLoggedIn', 'true');
-          this.authService.login();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
 
-          this.router.navigate(['']);
-        } else {
-          // Gérer les cas d'échec de connexion
-          console.error(response.message);
-        }
+    this.http.post<LoginResponse>(url, payload, httpOptions).subscribe(
+      response => {
+        // Extract the JWT token and user ID from the response
+        const token = response.token;
+        const userId = response.user.id;
+
+        // Store the JWT token in a cookie
+        this.cookieService.setCookie('token', token, 7); // Set cookie for 7 days
+        console.log(token);
+
+        // You can also store the user ID if needed
+        this.cookieService.setCookie('userId', userId, 7);
+        console.log(userId);
+
+        this.router.navigate(['']);
+
+        // Perform other actions, such as redirecting the user to another page
       },
-      error: error => {
-        // Gérer les erreurs de l'API REST
-        console.error(error);
+      error => {
+        // Handle login errors
       }
-    });
-  }
+    );
+  }  
 }
