@@ -13,6 +13,8 @@ export class NavbarComponent implements OnInit {
   userId: number | null = null;
   isAuthenticated: boolean = false;
   firstName: string = '';
+  photo: string = '';
+  isAdmin: boolean = false;
 
   constructor(public router: Router, public authService: AuthService, private cookieService: CookieService) {
     const token = this.cookieService.getCookie('token');
@@ -28,7 +30,8 @@ export class NavbarComponent implements OnInit {
     this.authService.fetchUserDetails().subscribe(
       (response: any) => {
         this.firstName = response.firstname;
-        console.log(this.firstName);
+        this.photo = response.photo;
+        this.isAdmin = response.roles.includes('ROLE_ADMIN');
       },
       error => {
         console.error('An error occurred while fetching user details:', error);

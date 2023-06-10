@@ -1,0 +1,56 @@
+.menu {
+    width: 200px;
+    background: #015A9B;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 10px;
+    color: white;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .category-heading {
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .category-heading:hover {
+    color: #FBCE01;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  ul.show {
+    max-height: 1000px;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo-container img {
+    width: 100px;
+  }
+
+  .subcategory {
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .subcategory:hover {
+    cursor: pointer;
+    color: #FBCE01;
+  }

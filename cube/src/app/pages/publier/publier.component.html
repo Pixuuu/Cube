@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulaire de Publication</title>
+</head>
+<body>
+    <h1>Formulaire de Publication</h1>
+    <form (submit)="onSubmit()">
+        <label for="title">Titre :</label>
+        <input type="text" id="title" name="title" required [(ngModel)]="publication.title"><br><br>
+
+        <label for="description">Description :</label>
+        <textarea id="description" name="description" required [(ngModel)]="publication.description"></textarea><br><br>
+
+        <label for="category">Catégorie :</label>
+        <select id="category" name="category" required [(ngModel)]="publication.idCategory">
+            <option value="1">Famille</option>
+            <option value="2">Amis</option>
+        </select><br><br>
+
+        <label for="language">Langue :</label>
+        <select id="language" name="language" required [(ngModel)]="publication.language">
+            <option value="FR">FR</option>
+            <option value="ENG">ENG</option>
+        </select><br><br>
+
+        <label for="support">Support :</label>
+        <select id="support" name="support" required [(ngModel)]="publication.support">
+            <option value="Article">Article</option>
+            <option value="Document">Document</option>
+            <option value="Activité">Activité</option>
+        </select><br><br>
+
+        <label for="relational_type">Type de relation :</label>
+        <select id="relational_type" name="relational_type" required [(ngModel)]="publication.relationalType">
+            <option value="Famille">Famille</option>
+            <option value="Amis">Amis</option>
+        </select><br><br>
+
+        <button type="submit">Créer Publication</button>
+    </form>
+</body>
+</html>

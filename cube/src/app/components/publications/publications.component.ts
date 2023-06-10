@@ -18,7 +18,6 @@ export class PublicationsComponent implements OnInit {
   ngOnInit() {
     this.token = this.cookieService.getCookie('token') ?? '';
 
-    console.log(this.token);
     this.fetchPublications();
   }
 
@@ -26,14 +25,13 @@ export class PublicationsComponent implements OnInit {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'bearer ' + this.token
       })
     };
 
-    this.http.get<any>('http://localhost:8000/api/publications', httpOptions)
+    this.http.get<any>('http://localhost:8000/api/public/publications', httpOptions)
       .subscribe(response => {
         this.publications = response;
-        this.displayedPublications = this.publications.slice(0, 5);
+        this.displayedPublications = this.publications.filter(publication => publication.status === 'approved').slice(0, 5);
       }, error => {
         console.error(error);
       });

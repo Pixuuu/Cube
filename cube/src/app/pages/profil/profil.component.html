@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=">
+    <title>Cube - Profile</title>
+</head>
+
+<app-navbar></app-navbar>
+
+<body>
+
+<div class="content-wrapper">
+    <div class="profile">
+    <div class="profile-photo">
+        <img [src]="'upload/profil/' + user.photo" alt="Photo de profil" style="width: 150px; height: 150px;">
+    </div>
+
+    <h2>Informations du profil</h2>
+  
+    <div class="profile-details">
+        <div class="profile-field">
+            <label>Email:</label>
+            <span>{{ user.email }}</span>
+        </div>
+    
+        <div class="profile-field">
+            <label>Prénom:</label>
+            <span>{{ user.firstname }}</span>
+        </div>
+    
+        <div class="profile-field">
+            <label>Nom:</label>
+            <span>{{ user.lastname }}</span>
+        </div>
+    
+        <div class="profile-field">
+            <label>Numéro de téléphone portable:</label>
+            <span>{{ user.mobile }}</span>
+        </div>
+    
+        <div class="profile-field">
+            <label>Numéro de téléphone fixe:</label>
+            <span>{{ user.phone }}</span>
+        </div>
+    
+        <div class="profile-field">
+            <label>Date d'anniversaire:</label>
+            <span>{{ user.birthday }}</span>
+        </div>
+    
+        <div class="profile-field">
+            <label>Rôle:</label>
+            <span>{{ user.roles }}</span>
+        </div>
+    
+        <div class="profile-field">
+            <label>Date de création:</label>
+            <span>{{ user.created }}</span>
+        </div>
+    </div>
+</div>
+</div>
+
+      
+
+<app-footer></app-footer>
+        
+</body>
+</html>

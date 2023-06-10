@@ -14,6 +14,11 @@ import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './pages/register/register.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { PublicationsComponent } from './components/publications/publications.component';
+import { ProfilComponent } from './pages/profil/profil.component';
+import { PublierComponent } from './pages/publier/publier.component';
+import { PanelComponent } from './pages/panel/panel.component';
+import { AdminGuard } from './admin.guard';
+import { PublimoderationComponent } from './components/publimoderation/publimoderation.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,11 @@ import { PublicationsComponent } from './components/publications/publications.co
     LoginComponent,
     RegisterComponent,
     CategoriesComponent,
-    PublicationsComponent
+    PublicationsComponent,
+    ProfilComponent,
+    PublierComponent,
+    PanelComponent,
+    PublimoderationComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +44,7 @@ import { PublicationsComponent } from './components/publications/publications.co
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

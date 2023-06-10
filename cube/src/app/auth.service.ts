@@ -2,23 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { CookieService } from './cookie.service';
 import { Observable, throwError, of} from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   constructor(private http: HttpClient, private cookieService: CookieService) {}
-
-  login(email: string, password: string): Observable<any> {
-    return this.http.post<any>('http://api.test/api/login', { email, password }).pipe(
-      catchError(error => {
-        console.error('An error occurred while retrieving user information:', error);
-        // Gérer les erreurs de connexion
-        return throwError(error);
-      })
-    );
-  }
 
   getUserDetails(userId: number): Observable<any> {
     const token = this.cookieService.getCookie('token');
@@ -70,7 +60,19 @@ export class AuthService {
   
     return !isTokenExpired; // Renvoie true si le token est présent et non expiré, sinon false
   }
+
+  isAdmin(): Observable<boolean> {
+    return this.fetchUserDetails().pipe(
+      map(user => user && user.roles.includes('ROLE_ADMIN')),
+      catchError(error => {
+        console.error('An error occurred while fetching user details:', error);
+        // Gérer les erreurs de récupération des détails de l'utilisateur
+        return of(false);
+      })
+    );
+  }
   
+
   private getTokenExpirationDate(token: string): Date {
     // Extraire la date d'expiration du token
     const tokenParts = token.split('.');

@@ -33,11 +33,9 @@ export class LoginComponent {
 
         // Store the JWT token in a cookie
         this.cookieService.setCookie('token', token, 7); // Set cookie for 7 days
-        console.log(token);
 
         // You can also store the user ID if needed
         this.cookieService.setCookie('userId', userId, 7);
-        console.log(userId);
 
         this.router.navigate(['']);
 

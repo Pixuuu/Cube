@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=">
-    <title>Cube - Index</title>
+    <title>Cube - Accueil</title>
 </head>
+<body>
 
 <app-navbar></app-navbar>
-
-<body>
     
     <section class="slide">
         <div class="slide-text">
@@ -17,8 +16,9 @@
             <h1>Ressource Relationnel</h1>
             <p>Publiez et partagez vos ressources afin de <br> vous créer des relations</p>
             <div class="slide-buttons">
-                <a href="/login" class="button">Connexion</a>
-                <a href="/register" class="button">S'enregistrer</a>
+                <button *ngIf="isAuthenticated" class="button" (click)="logout()">Déconnexion</button>
+                <a *ngIf="!isAuthenticated" href="/login" class="button">Connexion</a>
+                <a *ngIf="!isAuthenticated" href="/register" class="button">S'enregistrer</a>
             </div>
         </div>
         <div class="slide-image"></div>
