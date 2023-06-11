@@ -14,10 +14,11 @@
             <img [src]="'upload/profil/' + photo" alt="Avatar">
           </button>
            <mat-menu #loggedInMenu="matMenu" class="customize" [overlapTrigger]="false">
-              <span>Salut à toi {{ firstName }}<br></span>
-              <button mat-menu-item (click)="logout()">Déconnexion</button>
+            <span class="custom-mat-menu-content">Salut à toi {{ firstName }}<br></span>
               <button mat-menu-item (click)="redirection('profil')">Profil</button>
+              <button mat-menu-item (click)="redirection('ressources')">Mes ressources</button>
               <button mat-menu-item *ngIf="isAdmin" (click)="redirection('panel')">Panel admin</button>
+              <button mat-menu-item (click)="logout()">Déconnexion</button>
             </mat-menu>
         </div>  
         <div class="menu" *ngIf="!isAuthenticated">

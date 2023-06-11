@@ -58,6 +58,7 @@ export class PublimoderationComponent implements OnInit {
       .subscribe(
         response => {
           console.log('Publication mise à jour avec succès', response);
+          publication.status = 'approved';
         },
         error => {
           console.error('Erreur lors de la mise à jour de la publication', error);
@@ -69,8 +70,11 @@ export class PublimoderationComponent implements OnInit {
   loadMorePublications() {
     const startIndex = this.displayedPublications.length;
     const endIndex = startIndex + 5;
-    const nextPublications = this.publications.slice(startIndex, endIndex);
+    const nextPublications = this.publications
+      .filter(publication => publication.status === 'pending') // Filtrer les publications approuvées
+      .slice(startIndex, endIndex);
     this.displayedPublications = this.displayedPublications.concat(nextPublications);
   }
+  
 }
 

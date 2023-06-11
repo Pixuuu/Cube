@@ -40,8 +40,11 @@ export class PublicationsComponent implements OnInit {
   loadMorePublications() {
     const startIndex = this.displayedPublications.length;
     const endIndex = startIndex + 5;
-    const nextPublications = this.publications.slice(startIndex, endIndex);
+    const nextPublications = this.publications
+      .filter(publication => publication.status === 'approved') // Filtrer les publications approuvées
+      .slice(startIndex, endIndex);
     this.displayedPublications = this.displayedPublications.concat(nextPublications);
   }
+  
 }
 

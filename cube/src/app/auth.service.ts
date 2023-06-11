@@ -63,16 +63,15 @@ export class AuthService {
 
   isAdmin(): Observable<boolean> {
     return this.fetchUserDetails().pipe(
-      map(user => user && user.roles.includes('ROLE_ADMIN')),
+      map(user => user && (user.roles.includes('ROLE_ADMIN') || user.roles.includes('ROLE_SUPERADMIN'))),
       catchError(error => {
         console.error('An error occurred while fetching user details:', error);
         // Gérer les erreurs de récupération des détails de l'utilisateur
         return of(false);
       })
     );
-  }
+  }  
   
-
   private getTokenExpirationDate(token: string): Date {
     // Extraire la date d'expiration du token
     const tokenParts = token.split('.');

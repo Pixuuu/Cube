@@ -54,3 +54,13 @@
     cursor: pointer;
     color: #FBCE01;
   }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .home-icon path {
+    fill: white;
+  }
+  

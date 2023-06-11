@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+  }
+  
+  .app-panel {
+    width: 200px; /* Largeur fixe de 200px pour app-panel */
+  }
+  
+  .publications-list {
+    flex: 1; /* Utiliser tout l'espace restant dans le conteneur */
+    padding: 10px; /* Ajouter un peu de marge intérieure */
+  }
+  
+  .publications-list h2 {
+    margin-top: 0; /* Supprimer la marge supérieure des titres */
+  }
+  
+  .publications-list button {
+    margin-top: 10px; /* Ajouter un peu d'espace entre les boutons */
+    cursor: pointer; /* Afficher la main de souris au survol */
+  }
+  
+  .publications-list button[disabled] {
+    cursor: not-allowed; /* Afficher le curseur en mode non autorisé pour les boutons désactivés */
+  }
+  

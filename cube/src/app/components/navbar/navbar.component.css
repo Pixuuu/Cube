@@ -71,3 +71,9 @@ button img {
 .login i {
   font-size: 20px;
 }
+
+.custom-mat-menu-content {
+  padding: 10px;
+}
+
+

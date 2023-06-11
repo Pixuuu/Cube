@@ -10,20 +10,7 @@
 
 <app-navbar></app-navbar>
     
-    <section class="slide">
-        <div class="slide-text">
-            <p>La plateforme pour améliorer vos relations</p>
-            <h1>Ressource Relationnel</h1>
-            <p>Publiez et partagez vos ressources afin de <br> vous créer des relations</p>
-            <div class="slide-buttons">
-                <button *ngIf="isAuthenticated" class="button" (click)="logout()">Déconnexion</button>
-                <a *ngIf="!isAuthenticated" href="/login" class="button">Connexion</a>
-                <a *ngIf="!isAuthenticated" href="/register" class="button">S'enregistrer</a>
-            </div>
-        </div>
-        <div class="slide-image"></div>
-    </section>
-    <div class="spacer"></div>
+<app-slide></app-slide>
 
     <div class="container">
         <aside>

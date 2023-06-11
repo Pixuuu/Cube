@@ -19,6 +19,7 @@ import { PublierComponent } from './pages/publier/publier.component';
 import { PanelComponent } from './pages/panel/panel.component';
 import { AdminGuard } from './admin.guard';
 import { PublimoderationComponent } from './components/publimoderation/publimoderation.component';
+import { SlideComponent } from './components/slide/slide.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { PublimoderationComponent } from './components/publimoderation/publimode
     PublierComponent,
     PanelComponent,
     PublimoderationComponent,
+    SlideComponent,
   ],
   imports: [
     BrowserModule,
