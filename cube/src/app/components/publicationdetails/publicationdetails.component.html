@@ -1,21 +1,34 @@
 <div class="container">
-    <div *ngIf="publication">
+    <div *ngIf="publication" class="article">
       <h2>{{ publication.title }}</h2>
       <p class="description">{{ publication.description }}</p>
       <p class="category">Catégorie: {{ publication.category.libelle }} • Type: {{ publication.support }}</p>
       <p class="info">Publié le {{ publication.created | date:'dd/MM/yyyy' }} par {{ publication.publisher.firstname }} {{ publication.publisher.lastname }}</p>
     </div>
-    
-    <div>
+  
+    <div class="comments-section">
       <h3>Commentaires</h3>
-      <ul>
-        <li *ngFor="let comment of comments">{{ comment.content }}</li>
+      <ul class="comment-list">
+        <li *ngFor="let comment of comments">
+          <div class="comment">
+            <p class="user">{{ comment.sender.firstname }} {{comment.sender.lastname}}:</p>
+            <p class="content">{{ comment.content }}</p>
+            <button class="reply-btn" >Répondre</button>
+            <ul class="reply-list" *ngIf="comment.showReply">
+              <li *ngFor="let reply of comment.replies">
+                <div class="comment">
+                  <p class="content">{{ reply.content }}</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
       </ul>
     </div>
-    
+  
     <div>
       <textarea [(ngModel)]="newCommentText" rows="4" cols="50" placeholder="Ajouter un commentaire"></textarea>
       <button (click)="createComment()">Ajouter</button>
-    </div>      
+    </div>
   </div>
   

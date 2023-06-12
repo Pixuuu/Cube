@@ -52,14 +52,12 @@ export class PublicationdetailsComponent implements OnInit {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': `bearer ${this.token}`,
       })
     };
 
-    this.http.get<any>('http://localhost:8000/api/comments?publicationId=' + publicationId, httpOptions)
+    this.http.get<any>('http://localhost:8000/api/public/publications/' + publicationId, httpOptions)
       .subscribe(response => {
-        this.comments = response;
-        console.log(this.comments);
+        this.comments = response.comments;
       }, error => {
         console.error(error);
       });

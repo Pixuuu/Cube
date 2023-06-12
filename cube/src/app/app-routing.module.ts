@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'profil', component: ProfilComponent},
   { path: 'publier', component: PublierComponent},
-  { path: 'panel', component: PanelComponent, canActivate: [ AdminGuard ] },
+  { path: 'panel', component: PanelComponent, canActivate: [ AdminGuard, ModGuard ] },
   { path: 'modressources', component: PublimoderationComponent, canActivate: [ ModGuard ]},
   { path: 'publication/:id', component: ShowPublicationComponent},
 ];

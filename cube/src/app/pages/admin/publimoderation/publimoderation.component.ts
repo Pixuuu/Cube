@@ -12,11 +12,13 @@ export class PublimoderationComponent implements OnInit {
   displayedPublications: any[] = [];
   showAllPublications: boolean = false;
   token!: string;
+  userId!: string;
 
   constructor(private http: HttpClient, private cookieService:CookieService) { }
 
   ngOnInit() {
     this.token = this.cookieService.getCookie('token') ?? '';
+    this.userId = this.cookieService.getCookie('userId') ?? '';
 
     this.fetchPublications();
   }
@@ -51,6 +53,7 @@ export class PublimoderationComponent implements OnInit {
     };
   
     const publicationData = {
+      idUser: this.userId,
       status: 'approved'
     };
   
@@ -74,6 +77,7 @@ export class PublimoderationComponent implements OnInit {
     };
   
     const publicationData = {
+      idUser: this.userId,
       status: 'refused'
     };
   
