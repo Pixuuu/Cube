@@ -1,8 +1,8 @@
-<div *ngFor="let publication of displayedPublications">
+<div *ngFor="let publication of displayedPublications" class="publication-item" (click)="showPublicationDetails(publication.id)">
   <h2>{{ publication.title }}</h2>
-  <p>Date: {{ publication.publisher.lastname }}</p>
-  <p>Auteur: {{ publication.publisher.firstname }}</p>
-  <p>{{ publication.description }}</p>
+  <p class="description">{{ publication.description }}</p>
+  <p class="category">Catégorie: {{ publication.category.libelle }} • Type: {{publication.support }}</p>
+  <p class="info">Publié le {{ publication.created | date:'dd/MM/yyyy' }} par {{ publication.publisher.firstname }} {{ publication.publisher.lastname }}</p>
   <hr>
 </div>
 

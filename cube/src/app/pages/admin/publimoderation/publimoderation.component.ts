@@ -43,7 +43,7 @@ export class PublimoderationComponent implements OnInit {
       });
   }
   
-  updatePublication(publication: any) {
+  acceptPublication(publication: any) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -59,6 +59,29 @@ export class PublimoderationComponent implements OnInit {
         response => {
           console.log('Publication mise à jour avec succès', response);
           publication.status = 'approved';
+        },
+        error => {
+          console.error('Erreur lors de la mise à jour de la publication', error);
+        }
+      );
+  }
+
+  rejectPublication(publication: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+  
+    const publicationData = {
+      status: 'refused'
+    };
+  
+    this.http.put(`http://localhost:8000/api/publications/${publication.id}`, publicationData, httpOptions)
+      .subscribe(
+        response => {
+          console.log('Publication mise à jour avec succès', response);
+          publication.status = 'refused';
         },
         error => {
           console.error('Erreur lors de la mise à jour de la publication', error);

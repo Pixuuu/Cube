@@ -1,0 +1,21 @@
+<div class="container">
+    <div *ngIf="publication">
+      <h2>{{ publication.title }}</h2>
+      <p class="description">{{ publication.description }}</p>
+      <p class="category">Catégorie: {{ publication.category.libelle }} • Type: {{ publication.support }}</p>
+      <p class="info">Publié le {{ publication.created | date:'dd/MM/yyyy' }} par {{ publication.publisher.firstname }} {{ publication.publisher.lastname }}</p>
+    </div>
+    
+    <div>
+      <h3>Commentaires</h3>
+      <ul>
+        <li *ngFor="let comment of comments">{{ comment.content }}</li>
+      </ul>
+    </div>
+    
+    <div>
+      <textarea [(ngModel)]="newCommentText" rows="4" cols="50" placeholder="Ajouter un commentaire"></textarea>
+      <button (click)="createComment()">Ajouter</button>
+    </div>      
+  </div>
+  

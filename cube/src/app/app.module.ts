@@ -16,10 +16,13 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { PublicationsComponent } from './components/publications/publications.component';
 import { ProfilComponent } from './pages/profil/profil.component';
 import { PublierComponent } from './pages/publier/publier.component';
-import { PanelComponent } from './pages/panel/panel.component';
+import { PanelComponent } from './pages/admin/panel/panel.component';
 import { AdminGuard } from './admin.guard';
-import { PublimoderationComponent } from './components/publimoderation/publimoderation.component';
+import { PublimoderationComponent } from './pages/admin/publimoderation/publimoderation.component';
 import { SlideComponent } from './components/slide/slide.component';
+import { NavbarpanelComponent } from './components/navbarpanel/navbarpanel.component';
+import { PublicationdetailsComponent } from './components/publicationdetails/publicationdetails.component';
+import { ShowPublicationComponent } from './pages/show-publication/show-publication.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,9 @@ import { SlideComponent } from './components/slide/slide.component';
     PanelComponent,
     PublimoderationComponent,
     SlideComponent,
+    NavbarpanelComponent,
+    PublicationdetailsComponent,
+    ShowPublicationComponent,
   ],
   imports: [
     BrowserModule,

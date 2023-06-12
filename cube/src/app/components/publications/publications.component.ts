@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'src/app/cookie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-publications',
@@ -13,11 +14,10 @@ export class PublicationsComponent implements OnInit {
   showAllPublications: boolean = false;
   token!: string;
 
-  constructor(private http: HttpClient, private cookieService:CookieService) { }
+  constructor(private router: Router, private http: HttpClient, private cookieService: CookieService) { }
 
   ngOnInit() {
     this.token = this.cookieService.getCookie('token') ?? '';
-
     this.fetchPublications();
   }
 
@@ -32,6 +32,7 @@ export class PublicationsComponent implements OnInit {
       .subscribe(response => {
         this.publications = response;
         this.displayedPublications = this.publications.filter(publication => publication.status === 'approved').slice(0, 5);
+        console.log(this.publications);
       }, error => {
         console.error(error);
       });
@@ -45,6 +46,9 @@ export class PublicationsComponent implements OnInit {
       .slice(startIndex, endIndex);
     this.displayedPublications = this.displayedPublications.concat(nextPublications);
   }
-  
-}
 
+  showPublicationDetails(publicationId: string) {
+    this.router.navigate(['/publication', publicationId]);
+  }
+
+}

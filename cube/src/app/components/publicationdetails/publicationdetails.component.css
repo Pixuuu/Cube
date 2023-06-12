@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .article {
+    width: 800px;
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .article h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .article .description {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .article .category {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .article .info {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  

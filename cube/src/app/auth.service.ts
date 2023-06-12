@@ -70,6 +70,17 @@ export class AuthService {
         return of(false);
       })
     );
+  }
+
+  isMod(): Observable<boolean> {
+    return this.fetchUserDetails().pipe(
+      map(user => user && (user.roles.includes('ROLE_MOD') || user.roles.includes('ROLE_ADMIN') || user.roles.includes('ROLE_SUPERADMIN'))),
+      catchError(error => {
+        console.error('An error occurred while fetching user details:', error);
+        // Gérer les erreurs de récupération des détails de l'utilisateur
+        return of(false);
+      })
+    );
   }  
   
   private getTokenExpirationDate(token: string): Date {

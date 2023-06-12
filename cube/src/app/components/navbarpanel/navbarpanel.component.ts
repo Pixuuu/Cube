@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 
+
 @Component({
-  selector: 'app-panel',
-  templateUrl: './panel.component.html',
-  styleUrls: ['./panel.component.css']
+  selector: 'app-navbarpanel',
+  templateUrl: './navbarpanel.component.html',
+  styleUrls: ['./navbarpanel.component.css']
 })
-export class PanelComponent {
+export class NavbarpanelComponent {
   showSubcategories: { [key: string]: boolean } = {
     moderation: false,
     administration: false

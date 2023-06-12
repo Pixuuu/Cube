@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 
 interface RegisterRequestBody {
   email: string;
-  roles: string[];
   password: string;
   birthday: string;
   c_password: string;
@@ -28,7 +27,6 @@ export class RegisterComponent {
   email: string = '';
   password: string = '';
   c_password: string = '';
-  roles: string[] = ['ROLE_USER'];
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -52,7 +50,6 @@ export class RegisterComponent {
 
     const requestBody: RegisterRequestBody = {
       email: this.email,
-      roles: this.roles,
       password: this.password,
       birthday: this.birthday,
       c_password: this.c_password,
