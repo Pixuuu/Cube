@@ -15,6 +15,7 @@ export class ProfilComponent implements OnInit {
   token!: string;
   userId!: string;
   formattedBirthday: string = '';
+  modifiedData: any = {};
 
   constructor(private cookieService: CookieService, private router: Router, private http: HttpClient, private authService: AuthService) { }
 
@@ -23,6 +24,7 @@ export class ProfilComponent implements OnInit {
     this.authService.fetchUserDetails().subscribe(
       (response: any) => {
         this.user = response;
+        this.userId = response.idPublisher; // Récupérer l'ID du publisher
         if (!this.authService.isAuthenticated()) {
           this.router.navigate(['']); // Route [''] = home
         }
@@ -68,10 +70,14 @@ export class ProfilComponent implements OnInit {
         );
     }
   }
+
+  updateModifiedData(propertyName: string, value: any) {
+    this.modifiedData[propertyName] = value;
+  }
   
   saveProfile() {
     const userId = this.authService.getUserIdFromCookie();
-  
+    
     if (userId) {
       const httpOptions = {
         headers: new HttpHeaders({
@@ -79,18 +85,24 @@ export class ProfilComponent implements OnInit {
           'Authorization': `Bearer ${this.token}`
         })
       };
-  
-      this.http.put(`http://localhost:8000/api/users/${userId}`, this.user, httpOptions)
+
+      const modifiedProperties = {
+        idPublisher: userId,
+        ...this.modifiedData
+      };
+
+      this.http.put(`http://localhost:8000/api/users/${userId}`, modifiedProperties, httpOptions)
         .subscribe(
           (response: any) => {
-            console.log('Le profile a bien été mis à jour');
+            console.log('Le profil a bien été mis à jour');
+            this.modifiedData = {}; // Réinitialiser les données modifiées après la mise à jour réussie
           },
           error => {
-            console.error('Une erreur est survenue lors de la mise à jour du profile', error);
+            console.error('Une erreur est survenue lors de la mise à jour du profil', error);
           }
         );
     } else {
-      console.error("UserId n'a pas été trouvé dans le cookie");
+      console.error("UserId n'a pas été trouvé");
     }
   }
 }
