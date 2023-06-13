@@ -12,6 +12,7 @@ import { CookieService } from 'src/app/cookie.service';
 export class LoginComponent {
   email: string = '';
   password: string = '';
+  errorMessage: string = '';
 
   constructor(private http: HttpClient, private router: Router, private cookieService: CookieService) {}
 
@@ -43,6 +44,7 @@ export class LoginComponent {
       },
       error => {
         // Handle login errors
+        this.errorMessage = "Mot de passe incorrect";
       }
     );
   }  

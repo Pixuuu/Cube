@@ -28,6 +28,7 @@
                         <input type="password" [(ngModel)]="password" id="motdepasse" />
                         <span>Mot de passe oublié ?</span>
                     </div>
+                    <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
                     <button class="buttonlogin" (click)="seConnecter()">Connexion</button>
             </div>
         </div>
