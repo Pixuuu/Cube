@@ -11,6 +11,7 @@ import { ModGuard } from './mod.guard';
 import { PublimoderationComponent } from './pages/admin/publimoderation/publimoderation.component';
 import { PublicationdetailsComponent } from './components/publicationdetails/publicationdetails.component';
 import { ShowPublicationComponent } from './pages/show-publication/show-publication.component';
+import { GestionusersComponent } from './pages/admin/gestionusers/gestionusers.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'publier', component: PublierComponent},
   { path: 'panel', component: PanelComponent, canActivate: [ AdminGuard, ModGuard ] },
   { path: 'modressources', component: PublimoderationComponent, canActivate: [ ModGuard ]},
+  { path: 'gestionusers', component: GestionusersComponent, canActivate: [ AdminGuard ]},
   { path: 'publication/:id', component: ShowPublicationComponent},
 ];
 

@@ -11,7 +11,7 @@
       <ul class="comment-list">
         <li *ngFor="let comment of comments">
           <div class="comment">
-            <p class="user">{{ comment.sender.firstname }} {{comment.sender.lastname}}:</p>
+            <p class="user">{{ comment.sender.lastname }} {{comment.sender.firstname}}:</p>
             <p class="content">{{ comment.content }}</p>
             <button class="reply-btn" >Répondre</button>
             <ul class="reply-list" *ngIf="comment.showReply">

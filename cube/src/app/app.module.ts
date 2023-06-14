@@ -23,6 +23,7 @@ import { SlideComponent } from './components/slide/slide.component';
 import { NavbarpanelComponent } from './components/navbarpanel/navbarpanel.component';
 import { PublicationdetailsComponent } from './components/publicationdetails/publicationdetails.component';
 import { ShowPublicationComponent } from './pages/show-publication/show-publication.component';
+import { GestionusersComponent } from './pages/admin/gestionusers/gestionusers.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ShowPublicationComponent } from './pages/show-publication/show-publicat
     NavbarpanelComponent,
     PublicationdetailsComponent,
     ShowPublicationComponent,
+    GestionusersComponent,
   ],
   imports: [
     BrowserModule,
