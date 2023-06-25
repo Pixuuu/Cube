@@ -2,14 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'src/app/cookie.service';
-import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-publicationdetails',
   templateUrl: './publicationdetails.component.html',
   styleUrls: ['./publicationdetails.component.css']
 })
-
 export class PublicationdetailsComponent implements OnInit {
   
   publication: any;
@@ -24,7 +22,6 @@ export class PublicationdetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.userId);
     const publicationId = this.route.snapshot.paramMap.get('id');
     if (publicationId) {
       this.fetchPublicationDetails(publicationId);
@@ -57,7 +54,9 @@ export class PublicationdetailsComponent implements OnInit {
 
     this.http.get<any>('http://localhost:8000/api/public/publications/' + publicationId, httpOptions)
       .subscribe(response => {
-        this.comments = response.comments;
+        this.comments = response.comments.map((comment: any) => {
+          return { ...comment, showReply: false, replyText: '' };
+        });
       }, error => {
         console.error(error);
       });
@@ -88,4 +87,37 @@ export class PublicationdetailsComponent implements OnInit {
         console.error(error);
       });
   }
+
+  createCommentReply(comment: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `bearer ${this.token}`,
+      })
+    };
+
+    const newReply = {
+      idPublication: this.publication.id,
+      idUser: this.userId,
+      content: comment.replyText,
+      idReply: comment.id // Utilisez l'ID du commentaire parent comme idReply
+    };
+
+    console.log(newReply);
+
+    this.http.post<any>('http://localhost:8000/api/comments', newReply, httpOptions)
+      .subscribe(response => {
+        // Refresh comments after successful reply creation
+        this.fetchComments(this.publication.id);
+        console.log(response);
+      }, error => {
+        console.error(error);
+      });
+  }
+
+  toggleReplySection(comment: any) {
+    comment.showReply = !comment.showReply;
+    comment.replyText = ''; // Réinitialiser le texte de la réponse
+  }
+
 }

@@ -1,34 +1,54 @@
 <div class="container">
-    <div *ngIf="publication" class="article">
-      <h2>{{ publication.title }}</h2>
-      <p class="description">{{ publication.description }}</p>
-      <p class="category">Catégorie: {{ publication.category.libelle }} • Type: {{ publication.support }}</p>
-      <p class="info">Publié le {{ publication.created | date:'dd/MM/yyyy' }} par {{ publication.publisher.firstname }} {{ publication.publisher.lastname }}</p>
-    </div>
-  
-    <div class="comments-section">
-      <h3>Commentaires</h3>
-      <ul class="comment-list">
-        <li *ngFor="let comment of comments">
+  <div *ngIf="publication" class="article">
+    <h2>{{ publication.title }}</h2>
+    <p class="description">{{ publication.description }}</p>
+    <p class="category">Catégorie: {{ publication.category.libelle }} • Type: {{ publication.support }}</p>
+    <p class="info">Publié le {{ publication.created | date:'dd/MM/yyyy' }} par {{ publication.publisher.firstname }} {{ publication.publisher.lastname }}</p>
+  </div>
+
+  <div class="comments-section">
+    <h3>Commentaires</h3>
+    <ul class="comment-list">
+      <ng-container *ngFor="let comment of comments">
+        <li>
           <div class="comment">
-            <p class="user">{{ comment.sender.lastname }} {{comment.sender.firstname}}:</p>
+            <p class="user">{{ comment.sender?.lastname }} {{ comment.sender?.firstname }}:</p>
             <p class="content">{{ comment.content }}</p>
-            <button class="reply-btn" >Répondre</button>
-            <ul class="reply-list" *ngIf="comment.showReply">
-              <li *ngFor="let reply of comment.replies">
-                <div class="comment">
-                  <p class="content">{{ reply.content }}</p>
-                </div>
-              </li>
+            <button class="reply-btn" (click)="toggleReplySection(comment)">Répondre</button>
+            <div *ngIf="comment.showReply" class="reply-section">
+              <textarea [(ngModel)]="comment.replyText" rows="4" cols="50" placeholder="Répondre au commentaire"></textarea>
+              <button (click)="createCommentReply(comment)">Envoyer</button>
+            </div>
+            <ul class="reply-list">
+              <ng-container *ngIf="comment.comment">
+                <li>
+                  <div class="comment nested-comment">
+                    <ul class="nested-reply-list">
+                      <li>
+                        <div class="comment nested-comment">
+                          <p class="user">{{ comment.comment.sender?.lastname }} {{ comment.comment.sender?.firstname }}:</p>
+                          <p class="content">{{ comment.comment.content }}</p>
+                        </div>
+                      </li>
+                      <li *ngFor="let nestedReply of comment.comment.comment">
+                        <div class="comment nested-comment">
+                          <p class="user">{{ nestedReply.sender?.lastname }} {{ nestedReply.sender?.firstname }}:</p>
+                          <p class="content">{{ nestedReply.content }}</p>
+                        </div>
+                      </li>
+                    </ul>
+                    <button class="reply-btn" (click)="toggleReplySection(comment.comment)">Répondre</button>
+                    <div *ngIf="comment.comment.showReply" class="reply-section">
+                      <textarea [(ngModel)]="comment.comment.replyText" rows="4" cols="50" placeholder="Répondre au commentaire"></textarea>
+                      <button (click)="createCommentReply(comment.comment)">Envoyer</button>
+                    </div>
+                  </div>
+                </li>
+              </ng-container>
             </ul>
           </div>
         </li>
-      </ul>
-    </div>
-  
-    <div>
-      <textarea [(ngModel)]="newCommentText" rows="4" cols="50" placeholder="Ajouter un commentaire"></textarea>
-      <button (click)="createComment()">Ajouter</button>
-    </div>
+      </ng-container>
+    </ul>
   </div>
-  
+</div>
