@@ -84,7 +84,6 @@ changeRole() {
   const userId = this.cookieService.getCookie('userId');
   const userIdRole = this.userIdRole;
   const role = this.selectedRole;
-  console.log(this.selectedRole);
 
   if (userIdRole) {
     const httpOptions = {
