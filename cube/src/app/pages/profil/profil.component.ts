@@ -59,13 +59,32 @@ export class ProfilComponent implements OnInit {
       this.http.put(`http://localhost:8000/api/users/${userId}`, photoData, httpOptions)
         .subscribe(
           (response: any) => {
-            console.log('Photo uploaded successfully');
-            const photoFileName = response.fileName; // Récupérer le nom de la photo renvoyé par l'API
-            this.user.photo = photoFileName; // Enregistrer le nom du fichier dans la propriété "photo"
-
+            console.log('Nom changé correctement');
           },
           error => {
             console.error('An error occurred while uploading photo:', error);
+          }
+        );
+    }
+  
+    if (userId && this.selectedFile) {
+      const photoUpload = new FormData();
+      photoUpload.append('file', this.selectedFile, this.selectedFile.name);
+      photoUpload.append('idPublisher', userId.toString());
+  
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Authorization': `Bearer ${this.token}`
+        })
+      };
+  
+      this.http.put(`http://localhost:8000/api/users/${userId}`, photoUpload, httpOptions)
+        .subscribe(
+          (response: any) => {
+            console.log('La photo a bien été upload');
+          },
+          error => {
+            console.error('Une erreur est survenue:', error);
           }
         );
     }

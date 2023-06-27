@@ -81,6 +81,17 @@ export class AuthService {
         return of(false);
       })
     );
+  }
+  
+  isConnected(): Observable<boolean> {
+    return this.fetchUserDetails().pipe(
+      map(user => user && (user.roles.includes('ROLE_USER'))),
+      catchError(error => {
+        console.error('An error occurred while fetching user details:', error);
+        // Gérer les erreurs de récupération des détails de l'utilisateur
+        return of(false);
+      })
+    );
   }  
   
   private getTokenExpirationDate(token: string): Date {

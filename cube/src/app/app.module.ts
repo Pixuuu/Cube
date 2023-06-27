@@ -24,6 +24,7 @@ import { NavbarpanelComponent } from './components/navbarpanel/navbarpanel.compo
 import { PublicationdetailsComponent } from './components/publicationdetails/publicationdetails.component';
 import { ShowPublicationComponent } from './pages/show-publication/show-publication.component';
 import { GestionusersComponent } from './pages/admin/gestionusers/gestionusers.component';
+import { MespublicationsComponent } from './pages/mespublications/mespublications.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { GestionusersComponent } from './pages/admin/gestionusers/gestionusers.c
     PublicationdetailsComponent,
     ShowPublicationComponent,
     GestionusersComponent,
+    MespublicationsComponent,
   ],
   imports: [
     BrowserModule,

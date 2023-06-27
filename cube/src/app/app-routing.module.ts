@@ -12,17 +12,20 @@ import { PublimoderationComponent } from './pages/admin/publimoderation/publimod
 import { PublicationdetailsComponent } from './components/publicationdetails/publicationdetails.component';
 import { ShowPublicationComponent } from './pages/show-publication/show-publication.component';
 import { GestionusersComponent } from './pages/admin/gestionusers/gestionusers.component';
+import { MespublicationsComponent } from './pages/mespublications/mespublications.component';
+import { ConnectedGuard } from './connected.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'profil', component: ProfilComponent},
-  { path: 'publier', component: PublierComponent},
+  { path: 'profil', component: ProfilComponent, canActivate: [ ConnectedGuard ]},
+  { path: 'publier', component: PublierComponent, canActivate: [ ConnectedGuard ]},
   { path: 'panel', component: PanelComponent, canActivate: [ AdminGuard, ModGuard ] },
   { path: 'modressources', component: PublimoderationComponent, canActivate: [ ModGuard ]},
   { path: 'gestionusers', component: GestionusersComponent, canActivate: [ AdminGuard ]},
-  { path: 'publication/:id', component: ShowPublicationComponent},
+  { path: 'publication/:id', component: ShowPublicationComponent, canActivate: [ ConnectedGuard ]},
+  { path: 'mespublications', component: MespublicationsComponent, canActivate: [ ConnectedGuard ]},
 ];
 
 @NgModule({
