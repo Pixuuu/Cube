@@ -10,7 +10,7 @@ export class ConnectedGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(): Observable<boolean> | boolean {
-    return this.authService.isAdmin().pipe(
+    return this.authService.isConnected().pipe(
       map(isConnected => {
         if (isConnected) {
           return true;

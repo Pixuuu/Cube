@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from 'src/app/auth.service';
 import { CookieService } from 'src/app/cookie.service';
 
@@ -11,6 +11,7 @@ import { CookieService } from 'src/app/cookie.service';
 
 export class PublierComponent {
   userId: number | null = null;
+  token: string | null = null;
 
   publication: {
     title: string;
@@ -41,10 +42,18 @@ export class PublierComponent {
    }
 
   onSubmit(): void {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'bearer ' + this.token,
+      })
+    };
+
     const publicationData = { ...this.publication };
     publicationData.idPublisher = this.userId;
 
-    this.http.post('http://localhost:8000/api/publications', publicationData)
+    this.http.post('http://localhost:8000/api/publications', publicationData, httpOptions)
       .subscribe(
         response => {
           console.log('Publication créée avec succès', response);

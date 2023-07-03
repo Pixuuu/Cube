@@ -25,6 +25,9 @@ import { PublicationdetailsComponent } from './components/publicationdetails/pub
 import { ShowPublicationComponent } from './pages/show-publication/show-publication.component';
 import { GestionusersComponent } from './pages/admin/gestionusers/gestionusers.component';
 import { MespublicationsComponent } from './pages/mespublications/mespublications.component';
+import { DatePipe } from '@angular/common';
+import { ConnectedGuard } from './connected.guard';
+import { ModGuard } from './mod.guard';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,12 @@ import { MespublicationsComponent } from './pages/mespublications/mespublication
     HttpClientModule,
     FormsModule,
   ],
-  providers: [AdminGuard],
+  providers: [
+    AdminGuard,
+    ConnectedGuard,
+    ModGuard,
+    DatePipe,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'panel', component: PanelComponent, canActivate: [ AdminGuard, ModGuard ] },
   { path: 'modressources', component: PublimoderationComponent, canActivate: [ ModGuard ]},
   { path: 'gestionusers', component: GestionusersComponent, canActivate: [ AdminGuard ]},
-  { path: 'publication/:id', component: ShowPublicationComponent, canActivate: [ ConnectedGuard ]},
+  { path: 'publication/:id', component: ShowPublicationComponent},
   { path: 'mespublications', component: MespublicationsComponent, canActivate: [ ConnectedGuard ]},
 ];
 

@@ -1,1 +1,38 @@
 <app-navbar></app-navbar>
+
+<div class="container">
+  <h2>Publications de l'utilisateur</h2>
+  <div class="card-container">
+    <div *ngFor="let publication of publications" class="card">
+      <h3>{{ publication.title }}</h3>
+      <p>{{ publication.description }}</p>
+      <p>Date de création : {{ publication.created | date:'dd/MM/yyyy' }}</p>
+      <div class="actions">
+        <svg class="delete-icon" (click)="deletePublication(publication.id)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.5 13.5l-1.4 1.4L12 13.4l-3.1 3.1-1.4-1.4L10.6 12l-3.1-3.1 1.4-1.4L12 10.6l3.1-3.1 1.4 1.4L13.4 12l3.1 3.1z"/>
+        </svg>
+        <svg class="edit-icon" (click)="openEditModal(publication)" xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48">
+          <path d="M180-180h44l443-443-44-44-443 443v44Zm614-486L666-794l42-42q17-17 42-17t42 17l44 44q17 17 17 42t-17 42l-42 42Zm-42 42L248-120H120v-128l504-504 128 128Zm-107-21-22-22 44 44-22-22Z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="selectedPublication" class="edit-popup">
+    <div class="edit-popup-content">
+      <h3>Modifier la publication</h3>
+      <form (submit)="updatePublication()">
+        <label>Titre</label>
+        <input [(ngModel)]="selectedPublication.title" placeholder="Titre" name="title"/>
+        <label>Description</label>
+        <textarea [(ngModel)]="selectedPublication.description" placeholder="Description" name="desc"></textarea>
+        <div class="edit-popup-actions">
+          <button type="submit">Enregistrer</button>
+          <button type="button" (click)="cancelEdit()">Annuler</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -36,6 +36,14 @@
 
 .comments-section {
   margin-top: 20px;
+  max-height: calc(100vh - 100px); /* Ajustez cette valeur en fonction de la hauteur de votre en-tête et du pied de page */
+  overflow-y: auto; /* Cela permettra à la section de défiler si le contenu dépasse la hauteur maximale. */
+}
+
+@media (max-width: 600px) {
+  .comments-section {
+    max-height: calc(100vh - 50px); /* Adaptez la hauteur en fonction de la taille de votre en-tête et du pied de page sur mobile */
+  }
 }
 
 .comments-section h3 {
