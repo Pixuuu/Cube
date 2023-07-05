@@ -107,5 +107,4 @@ export class MespublicationsComponent {
   cancelEdit() {
     this.selectedPublication = null;
   }
-
 }

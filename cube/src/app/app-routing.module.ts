@@ -14,6 +14,7 @@ import { ShowPublicationComponent } from './pages/show-publication/show-publicat
 import { GestionusersComponent } from './pages/admin/gestionusers/gestionusers.component';
 import { MespublicationsComponent } from './pages/mespublications/mespublications.component';
 import { ConnectedGuard } from './connected.guard';
+import { RelationComponent } from './pages/relation/relation.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'gestionusers', component: GestionusersComponent, canActivate: [ AdminGuard ]},
   { path: 'publication/:id', component: ShowPublicationComponent},
   { path: 'mespublications', component: MespublicationsComponent, canActivate: [ ConnectedGuard ]},
+  { path: 'relation', component: RelationComponent, canActivate: [ ConnectedGuard ]},
 ];
 
 @NgModule({

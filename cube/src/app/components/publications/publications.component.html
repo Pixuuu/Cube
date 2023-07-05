@@ -1,9 +1,11 @@
-<div *ngFor="let publication of displayedPublications" class="publication-item" (click)="showPublicationDetails(publication.id)">
-  <h2>{{ publication.title }}</h2>
-  <p class="description">{{ publication.description }}</p>
-  <p class="category">Catégorie: {{ publication.category.libelle }} • Type: {{publication.support }}</p>
-  <p class="info">Publié le {{ publication.created | date:'dd/MM/yyyy' }} par {{ publication.publisher.firstname }} {{ publication.publisher.lastname }}</p>
-  <hr>
+<div class="publication-list">
+  <div *ngFor="let publication of filteredPublications" class="publication-item" (click)="showPublicationDetails(publication.id)">
+    <h2>{{ publication.title }}</h2>
+    <p class="description">{{ publication.description }}</p>
+    <p class="category">Catégorie: {{ publication.category.libelle }}</p>
+    <p class="info">Publié le {{ publication.created | date:'dd/MM/yyyy' }} par {{ publication.publisher.lastname }} {{ publication.publisher.firstname }}</p>
+    <hr>
+  </div>
 </div>
 
 <button *ngIf="displayedPublications.length < publications.length" (click)="loadMorePublications()">Charger plus de publications</button>

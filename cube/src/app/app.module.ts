@@ -28,6 +28,7 @@ import { MespublicationsComponent } from './pages/mespublications/mespublication
 import { DatePipe } from '@angular/common';
 import { ConnectedGuard } from './connected.guard';
 import { ModGuard } from './mod.guard';
+import { RelationComponent } from './pages/relation/relation.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ModGuard } from './mod.guard';
     ShowPublicationComponent,
     GestionusersComponent,
     MespublicationsComponent,
+    RelationComponent,
   ],
   imports: [
     BrowserModule,
