@@ -93,5 +93,4 @@ export class PublicationsComponent implements OnInit {
       alert('Veuillez vous connecter pour ajouter une publication en favoris');
     }
   }
-
 }
