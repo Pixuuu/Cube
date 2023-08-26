@@ -35,7 +35,7 @@ export class MespublicationsComponent {
       })
     };
 
-    this.http.get<any>('http://localhost:8000/api/users/' + userId, httpOptions)
+    this.http.get<any>('http://127.0.0.1:8000/api/users/' + userId, httpOptions)
       .subscribe(response => {
         this.publications = response.publications;
         console.log(this.publications);
@@ -52,7 +52,7 @@ export class MespublicationsComponent {
       })
     };
 
-    this.http.delete<any>('http://localhost:8000/api/publications/' + publicationId, httpOptions)
+    this.http.delete<any>('http://127.0.0.1:8000/api/publications/' + publicationId, httpOptions)
       .subscribe(() => {
         // Suppression réussie, mettre à jour la liste des publications
         this.fetchMyPublications(this.userId);
@@ -87,7 +87,7 @@ export class MespublicationsComponent {
       modified: currentDate
     };
 
-    this.http.put<any>('http://localhost:8000/api/publications/' + this.selectedPublication.id, publicationData, httpOptions)
+    this.http.put<any>('http://127.0.0.1:8000/api/publications/' + this.selectedPublication.id, publicationData, httpOptions)
       .subscribe(response => {
         // Mettre à jour localement la publication modifiée dans le tableau des publications
         const updatedPublicationIndex = this.publications.findIndex((p: any) => p.id === this.selectedPublication.id);

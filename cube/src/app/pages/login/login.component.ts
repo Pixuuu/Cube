@@ -17,7 +17,7 @@ export class LoginComponent {
   constructor(private http: HttpClient, private router: Router, private cookieService: CookieService) {}
 
   seConnecter() {
-    const url = 'http://localhost:8000/api/login_check';
+    const url = 'http://127.0.0.1:8000/api/login_check';
     const payload = { username: this.email, password: this.password };
 
     const httpOptions = {

@@ -53,7 +53,7 @@ export class PublierComponent {
     const publicationData = { ...this.publication };
     publicationData.idPublisher = this.userId;
 
-    this.http.post('http://localhost:8000/api/publications', publicationData, httpOptions)
+    this.http.post('http://127.0.0.1:8000/api/publications', publicationData, httpOptions)
       .subscribe(
         response => {
           console.log('Publication créée avec succès', response);

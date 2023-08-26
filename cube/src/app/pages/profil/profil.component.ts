@@ -56,7 +56,7 @@ export class ProfilComponent implements OnInit {
         })
       };
   
-      this.http.put(`http://localhost:8000/api/users/${userId}`, photoData, httpOptions)
+      this.http.put(`http://127.0.0.1:8000/api/users/${userId}`, photoData, httpOptions)
         .subscribe(
           (response: any) => {
             console.log('Nom changé correctement');
@@ -78,7 +78,7 @@ export class ProfilComponent implements OnInit {
         })
       };
   
-      this.http.put(`http://localhost:8000/api/users/${userId}`, photoUpload, httpOptions)
+      this.http.put(`http://127.0.0.1:8000/api/users/${userId}`, photoUpload, httpOptions)
         .subscribe(
           (response: any) => {
             console.log('La photo a bien été upload');
@@ -110,7 +110,7 @@ export class ProfilComponent implements OnInit {
         ...this.modifiedData
       };
 
-      this.http.put(`http://localhost:8000/api/users/${userId}`, modifiedProperties, httpOptions)
+      this.http.put(`http://127.0.0.1:8000/api/users/${userId}`, modifiedProperties, httpOptions)
         .subscribe(
           (response: any) => {
             console.log('Le profil a bien été mis à jour');

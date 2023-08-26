@@ -36,7 +36,7 @@ export class PublicationdetailsComponent implements OnInit {
       })
     };
 
-    this.http.get<any>('http://localhost:8000/api/public/publications/' + publicationId, httpOptions)
+    this.http.get<any>('http://127.0.0.1:8000/api/public/publications/' + publicationId, httpOptions)
       .subscribe(response => {
         this.publication = response;
         console.log(this.publication);
@@ -52,7 +52,7 @@ export class PublicationdetailsComponent implements OnInit {
       })
     };
 
-    this.http.get<any>('http://localhost:8000/api/public/publications/' + publicationId, httpOptions)
+    this.http.get<any>('http://127.0.0.1:8000/api/public/publications/' + publicationId, httpOptions)
       .subscribe(response => {
         this.comments = response.comments.map((comment: any) => {
           return { ...comment, showReply: false, replyText: '' };
@@ -76,7 +76,7 @@ export class PublicationdetailsComponent implements OnInit {
       idUser: this.userId,
     };
 
-    this.http.post<any>('http://localhost:8000/api/comments', newComment, httpOptions)
+    this.http.post<any>('http://127.0.0.1:8000/api/comments', newComment, httpOptions)
       .subscribe(response => {
         // Refresh comments after successful creation
         this.fetchComments(this.publication.id);
@@ -105,7 +105,7 @@ export class PublicationdetailsComponent implements OnInit {
 
     console.log(newReply);
 
-    this.http.post<any>('http://localhost:8000/api/comments', newReply, httpOptions)
+    this.http.post<any>('http://127.0.0.1:8000/api/comments', newReply, httpOptions)
       .subscribe(response => {
         // Refresh comments after successful reply creation
         this.fetchComments(this.publication.id);

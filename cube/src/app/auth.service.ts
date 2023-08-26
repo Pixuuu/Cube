@@ -22,7 +22,7 @@ export class AuthService {
       })
     };
   
-    return this.http.get<any>(`http://localhost:8000/api/users/${userId}`, httpOptions).pipe(
+    return this.http.get<any>(`http://127.0.0.1:8000/api/users/${userId}`, httpOptions).pipe(
       catchError(error => {
         console.error('An error occurred while retrieving user details:', error);
         // Gérer les erreurs de récupération des détails de l'utilisateur

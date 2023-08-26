@@ -41,7 +41,7 @@ export class PublicationsComponent implements OnInit {
       })
     };
 
-    this.http.get<any>('http://localhost:8000/api/public/publications', httpOptions)
+    this.http.get<any>('http://127.0.0.1:8000/api/public/publications', httpOptions)
       .subscribe(response => {
         this.publications = response;
         this.filteredPublications = this.publications.filter(publication => publication.status === 'approved').slice(0, 5);
@@ -82,7 +82,7 @@ export class PublicationsComponent implements OnInit {
           'Authorization': 'bearer ' + this.token,
         })
       };
-      this.http.post<any>('http://localhost:8000/api/users/' + userId + '/favorites', data, httpOptions)
+      this.http.post<any>('http://127.0.0.1:8000/api/users/' + userId + '/favorites', data, httpOptions)
         .subscribe(response => {
           console.log(response);
           alert('Publication ajoutée en favoris avec succès');

@@ -37,7 +37,7 @@ constructor(private http: HttpClient, private cookieService: CookieService ){
       asset: true
     }; // Le corps de la requête pour activer le compte
 
-    this.http.put<any>(`http://localhost:8000/api/users/${userIdActivated}`, body, httpOptions)
+    this.http.put<any>(`http://127.0.0.1:8000/api/users/${userIdActivated}`, body, httpOptions)
       .subscribe(
         response => {
           console.log("L'utilisateur a bien été activé");
@@ -67,7 +67,7 @@ deactivateAccount() {
       asset: false
     }; // Le corps de la requête pour désactiver le compte
 
-    this.http.put<any>(`http://localhost:8000/api/users/${userIdDesactivated}`, body, httpOptions)
+    this.http.put<any>(`http://127.0.0.1:8000/api/users/${userIdDesactivated}`, body, httpOptions)
       .subscribe(
         response => {
           console.log("L'utilisateur a bien été désactivé");
@@ -98,7 +98,7 @@ changeRole() {
       roles: [role]
     }; // Le corps de la requête pour changer le rôle de l'utilisateur
 
-    this.http.put<any>(`http://localhost:8000/api/users/${userIdRole}`, body, httpOptions)
+    this.http.put<any>(`http://127.0.0.1:8000/api/users/${userIdRole}`, body, httpOptions)
       .subscribe(
         response => {
           console.log(response);

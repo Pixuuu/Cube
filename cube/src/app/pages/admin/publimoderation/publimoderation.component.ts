@@ -36,7 +36,7 @@ export class PublimoderationComponent implements OnInit {
       })
     };
   
-    this.http.get<any>('http://localhost:8000/api/public/publications', httpOptions)
+    this.http.get<any>('http://127.0.0.1:8000/api/public/publications', httpOptions)
       .subscribe(response => {
         this.publications = response;
         this.displayedPublications = this.publications.filter(publication => publication.status === 'pending').slice(0, 5);
@@ -57,7 +57,7 @@ export class PublimoderationComponent implements OnInit {
       status: 'approved'
     };
   
-    this.http.put(`http://localhost:8000/api/publications/${publication.id}`, publicationData, httpOptions)
+    this.http.put(`http://127.0.0.1:8000/api/publications/${publication.id}`, publicationData, httpOptions)
       .subscribe(
         response => {
           console.log('Publication mise à jour avec succès', response);
@@ -81,7 +81,7 @@ export class PublimoderationComponent implements OnInit {
       status: 'refused'
     };
   
-    this.http.put(`http://localhost:8000/api/publications/${publication.id}`, publicationData, httpOptions)
+    this.http.put(`http://127.0.0.1:8000/api/publications/${publication.id}`, publicationData, httpOptions)
       .subscribe(
         response => {
           console.log('Publication mise à jour avec succès', response);
